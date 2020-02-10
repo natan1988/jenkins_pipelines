@@ -9,9 +9,10 @@ node {
         
     }
     stage("Send Notification to Slack"){
-        echo "Hello"
+        slackSend channel: 'nagios_alerts', message: 'Golden AMI has been built'
     }
     stage("Send Email"){
-        echo "Hello"
+        mail bcc: '', body: '''Hello ,
+             your AMI is ready in us-east-1''', cc: '', from: '', replyTo: '', subject: 'golden ami has been built', to: 'maksatabakirov1@gmail.com'
     }
 }
